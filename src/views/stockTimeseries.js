@@ -11,6 +11,8 @@ const StockTimeseries = ({ symbol }) => {
     }
   });
   if (loading) return <Loader />
+  console.log('error');
+  console.log(error);
   if (error) return <p>Something went wrong while fetching the data!</p>
 
   const getDataPoints = (type) => {
@@ -18,10 +20,14 @@ const StockTimeseries = ({ symbol }) => {
     data.stock_data.map((dataPoint) => {
       let value = dataPoint[type];
       if (type === 'time') {
-        value = new Date(dataPoint['time']).toLocaleString('en-US');
+        console.log('inside the if statement');
+        return value = new Date(dataPoint['time']).toLocaleString('en-US');
       }
+      console.log('after if statement');
       values.push(value);
+      return values;
     });
+    console.log('outside the map');
     return values;
   }
 

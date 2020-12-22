@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const register = (insertSubscription) => {
   if ('serviceWorker' in navigator) {
-    const swUrl = `${process.env.PUBLIC_URL}/serviceWorker.js`
+    const swUrl = `${process.env.PUBLIC_URL}/serviceWorker.js`;
+    console.log(swUrl);
     navigator.serviceWorker.register(swUrl)
       .then(() => {
         console.log('Service Worker registered');
